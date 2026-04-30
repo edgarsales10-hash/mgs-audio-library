@@ -1,6 +1,6 @@
 # MGS Audio Library
 
-Modulo privado para Foundry VTT que distribui a estrutura da biblioteca e referencia audios hospedados fora do GitHub.
+Modulo privado para Foundry VTT que gera playlists no mundo a partir de uma biblioteca de audios hospedada fora do GitHub.
 
 ## Arquitetura recomendada
 
@@ -38,11 +38,14 @@ MGS Audio/
 https://audio.seudominio.com/MGS%20Audio/...
 ```
 
-4. Execute o script `scripts/generate-audio-index.ps1` para gerar um catalogo JSON com URLs remotas.
-5. Atualize o `module.json` com seu usuario do GitHub e a versao correta.
-6. Execute `scripts/build-release.ps1` para gerar o `module.zip`.
-7. Publique `module.json` e `module.zip` como assets de uma GitHub Release.
-8. Compartilhe a URL:
+4. Execute o script `scripts/generate-audio-index.ps1` para gerar um catalogo JSON com URLs remotas usando a URL publica real do bucket.
+5. Gere ou atualize as playlists no Foundry a partir desse catalogo.
+6. Exporte a pasta `MGS Audio` para um compendio de `Playlist` desbloqueado com `Keep Folder Structure`.
+7. Opcional: execute `scripts/package-module-pack.ps1` se quiser transformar esse compendio do mundo em um pack nativo do modulo.
+8. Atualize o `module.json` com seu usuario do GitHub e a versao correta.
+9. Execute `scripts/build-release.ps1` para gerar o `module.zip`.
+10. Publique `module.json` e `module.zip` como assets de uma GitHub Release.
+11. Compartilhe a URL:
 
 ```text
 https://github.com/edgarsales10-hash/mgs-audio-library/releases/latest/download/module.json
@@ -71,7 +74,14 @@ Gerar o catalogo:
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\generate-audio-index.ps1 `
   -SourceRoot "C:\Users\DS-4\AppData\Local\FoundryVTT\Data\MGS Audio" `
-  -BaseUrl "https://audio.seudominio.com/MGS%20Audio"
+  -BaseUrl "https://SUA-URL-PUBLICA-REAL/MGS%20Audio"
+```
+
+Copiar o compendio exportado pelo Foundry para dentro do modulo:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\package-module-pack.ps1 `
+  -WorldPackPath "C:\Users\DS-4\AppData\Local\FoundryVTT\Data\worlds\SEU_MUNDO\packs\mgs-audio"
 ```
 
 Gerar o zip da release:
@@ -100,7 +110,18 @@ Depois de subir os arquivos para o R2, podemos gerar:
 
 Esta versao do modulo:
 
-- le o `audio-index.json`
-- cria playlists no mundo atual
-- preserva a hierarquia de pastas original sob a pasta raiz `MGS Audio`
-- permite exportar essa arvore para um compendio de `Playlist` usando a ferramenta nativa do Foundry
+- le o `data/audio-index.json`
+- cria ou atualiza a arvore de playlists `MGS Audio` no mundo atual
+- preserva a hierarquia de pastas original
+- permite que voce exporte essa arvore para um compendio de `Playlist` pelo Foundry
+
+## Observacao critica sobre os audios
+
+Se os audios nao tocarem, quase sempre o problema e o `data/audio-index.json` ter sido gerado com uma URL placeholder como `audio.example.com`.
+
+Antes de exportar o compendio final:
+
+1. gere o `audio-index.json` com a URL publica real do bucket
+2. regenere as playlists no Foundry
+3. reexporte o compendio
+4. recopie o pack para `packs/mgs-audio`
