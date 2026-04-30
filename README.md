@@ -1,6 +1,6 @@
 # MGS Audio Library
 
-Modulo privado para Foundry VTT que gera playlists no mundo a partir de uma biblioteca de audios hospedada fora do GitHub.
+Modulo privado para Foundry VTT que distribui um compendio nativo de playlists com audios hospedados externamente.
 
 ## Arquitetura recomendada
 
@@ -41,7 +41,7 @@ https://audio.seudominio.com/MGS%20Audio/...
 4. Execute o script `scripts/generate-audio-index.ps1` para gerar um catalogo JSON com URLs remotas usando a URL publica real do bucket.
 5. Gere ou atualize as playlists no Foundry a partir desse catalogo.
 6. Exporte a pasta `MGS Audio` para um compendio de `Playlist` desbloqueado com `Keep Folder Structure`.
-7. Opcional: execute `scripts/package-module-pack.ps1` se quiser transformar esse compendio do mundo em um pack nativo do modulo.
+7. Execute `scripts/package-module-pack.ps1` para copiar esse compendio do mundo para `packs/mgs-audio`.
 8. Atualize o `module.json` com seu usuario do GitHub e a versao correta.
 9. Execute `scripts/build-release.ps1` para gerar o `module.zip`.
 10. Publique `module.json` e `module.zip` como assets de uma GitHub Release.
@@ -108,12 +108,11 @@ Depois de subir os arquivos para o R2, podemos gerar:
 
 ## Comportamento atual do modulo
 
-Esta versao do modulo:
+Esta versao do modulo distribui um compendio nativo de `Playlist` em `packs/mgs-audio`.
 
-- le o `data/audio-index.json`
-- cria ou atualiza a arvore de playlists `MGS Audio` no mundo atual
-- preserva a hierarquia de pastas original
-- permite que voce exporte essa arvore para um compendio de `Playlist` pelo Foundry
+- instale o modulo
+- abra o compendio `MGS Audio`
+- arraste ou importe as playlists para a aba `Playlists`
 
 ## Observacao critica sobre os audios
 
