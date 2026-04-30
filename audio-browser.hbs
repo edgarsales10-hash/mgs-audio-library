@@ -1,0 +1,41 @@
+<section class="mgs-audio-browser-shell">
+  <header class="mgs-audio-browser-header">
+    <div>
+      <h2>MGS Audio Browser</h2>
+      <p>{{total}} faixas encontradas</p>
+    </div>
+    <label class="mgs-audio-search">
+      <span>Buscar</span>
+      <input type="search" value="{{search}}" placeholder="forest, combat, tavern..." data-action="search">
+    </label>
+  </header>
+
+  {{#if hasTracks}}
+  <div class="mgs-audio-browser-list">
+    {{#each categories}}
+    <section class="mgs-audio-category">
+      <h3>{{name}} <span>{{total}}</span></h3>
+      <div class="mgs-audio-track-list">
+        {{#each tracks}}
+        <article class="mgs-audio-track">
+          <div class="mgs-audio-track-meta">
+            <strong>{{name}}</strong>
+            <small>{{relativePath}}</small>
+          </div>
+          <div class="mgs-audio-track-actions">
+            <audio controls preload="none" src="{{url}}"></audio>
+            <button type="button" data-action="copy" data-url="{{url}}">Copiar URL</button>
+          </div>
+        </article>
+        {{/each}}
+      </div>
+    </section>
+    {{/each}}
+  </div>
+  {{else}}
+  <div class="mgs-audio-empty">
+    <p>Nenhum audio encontrado.</p>
+    <p>Confira se o arquivo <code>data/audio-index.json</code> foi publicado com a URL correta do R2.</p>
+  </div>
+  {{/if}}
+</section>
