@@ -1,0 +1,30 @@
+{
+  "id": "mgs-audio-library",
+  "title": "MGS Audio Library",
+  "description": "Biblioteca privada de audios para Foundry VTT com geracao de playlists a partir de URLs externas.",
+  "version": "0.2.1",
+  "authors": [
+    {
+      "name": "DS-4"
+    }
+  ],
+  "compatibility": {
+    "minimum": "11",
+    "verified": "13"
+  },
+  "url": "https://github.com/edgarsales10-hash/mgs-audio-library",
+  "manifest": "https://github.com/edgarsales10-hash/mgs-audio-library/releases/latest/download/module.json",
+  "download": "https://github.com/edgarsales10-hash/mgs-audio-library/releases/download/0.2.1/module.zip",
+  "readme": "https://github.com/edgarsales10-hash/mgs-audio-library#readme",
+  "license": "LICENSE",
+  "scripts": [],
+  "esmodules": [
+    "scripts/mgs-audio-browser.js"
+  ],
+  "styles": [],
+  "languages": [],
+  "packs": [],
+  "relationships": {
+    "systems": []
+  }
+}
