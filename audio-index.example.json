@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-04-29T00:00:00.0000000-03:00",
+  "sourceRoot": "C:/Users/DS-4/AppData/Local/FoundryVTT/Data/MGS Audio",
+  "baseUrl": "https://audio.seudominio.com/MGS%20Audio",
+  "total": 2,
+  "categories": [
+    {
+      "name": "Ambience",
+      "total": 1,
+      "tracks": [
+        {
+          "name": "forest-night",
+          "file": "forest-night.ogg",
+          "extension": ".ogg",
+          "category": "Ambience",
+          "relativePath": "Ambience/Basic/Forest/forest-night.ogg",
+          "url": "https://audio.seudominio.com/MGS%20Audio/Ambience/Basic/Forest/forest-night.ogg"
+        }
+      ]
+    },
+    {
+      "name": "SFX",
+      "total": 1,
+      "tracks": [
+        {
+          "name": "sword-hit-01",
+          "file": "sword-hit-01.ogg",
+          "extension": ".ogg",
+          "category": "SFX",
+          "relativePath": "SFX/Basic/Weapons/sword-hit-01.ogg",
+          "url": "https://audio.seudominio.com/MGS%20Audio/SFX/Basic/Weapons/sword-hit-01.ogg"
+        }
+      ]
+    }
+  ]
+}
